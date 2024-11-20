@@ -1,9 +1,7 @@
 <?php
 
-error_log("Index.php reached");
-error_log("loadenv.php included");
-
 require_once '../vendor/autoload.php'; // Inclure l'autoloader de Composer
+
 use App\Autoloader;
 use App\Config\Main;
 
