@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/src/Config/loadenv.php';
 require_once '../vendor/autoload.php'; // Inclure l'autoloader de Composer
 use App\Autoloader;
 use App\Config\Main;
