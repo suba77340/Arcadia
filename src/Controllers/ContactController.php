@@ -46,10 +46,10 @@ class ContactController
 
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = getenv('SMTP_HOST');
             $mail->SMTPAuth = true;
-            $mail->Username = 'arcadiazoo36110@gmail.com';
-            $mail->Password = 'jakm hbgf vtpk xvyi';
+            $mail->Username = getenv('SMTP_USERNAME');
+            $mail->Password = getenv('SMTP_PASSWORD');
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
