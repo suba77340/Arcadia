@@ -2,7 +2,7 @@
 
 error_log("Index.php reached");
 
-require_once __DIR__ . '/../src/Config/loadenv.php';
+require_once __DIR__ . '/src/Config/loadenv.php';
 
 error_log("loadenv.php included");
 
