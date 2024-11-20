@@ -1,0 +1,3 @@
+# Ignorer Db.php dans le dossier Config
+src/Config/Db.php
+vendor/
