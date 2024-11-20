@@ -17,5 +17,3 @@ function loadEnv($path)
         putenv(sprintf('%s=%s', trim($name), trim($value)));
     }
 }
-
-/*loadEnv(__DIR__ . '/.env');*/
