@@ -7,28 +7,28 @@ use PDOException;
 
 class Db extends PDO
 {
-    // instance unique de la classe
     private static $instance;
 
     private function __construct()
     {
-
-    // infos connexion
         $host = getenv('HOST');
-        $username = getenv('USERNAME');
-        $password = getenv('PASSWORD'); 
         $dbname = getenv('DBNAME');
+        $username = getenv('USERNAME');
+        $password = getenv('PASSWORD');
 
-        // dsn connexion
         $_dsn = "mysql:dbname=$dbname;host=$host";
-        // appelle constructeur de class PDO
         try {
             parent::__construct($_dsn, $username, $password);
 
             $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, 'SET NAMES utf8');
             $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
             $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Log successful connection
+            error_log("Connected to database successfully.");
         } catch (PDOException $e) {
+            // Log error message
+            error_log("Database connection error: " . $e->getMessage());
             die($e->getMessage());
         }
     }
@@ -40,6 +40,4 @@ class Db extends PDO
         }
         return self::$instance;
     }
-    
 }
-
