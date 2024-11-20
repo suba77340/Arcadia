@@ -1,0 +1,5 @@
+RewriteEngine On
+# Autoriser l'accès aux fichiers image
+RewriteCond %{REQUEST_URI} !\.(png|jpg|jpeg|pdf)$
+# Bloquer toutes les autres requêtes
+RewriteRule .*$ - [F]
