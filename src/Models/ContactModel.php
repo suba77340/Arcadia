@@ -10,7 +10,7 @@ class ContactModel
 
     public function __construct()
     {
-        $client = new Client("mongodb+srv://employe:Subathira777@cluster0.jqfmr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+        $client = new Client(getenv('MONGO_URI'));
         $this->collection = $client->zoo->contacts;
     }
 
