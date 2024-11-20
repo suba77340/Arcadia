@@ -5,5 +5,8 @@
             "App\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "mongodb/mongodb": "^1.19",
+        "phpmailer/phpmailer": "^6.9"
+    }
 }
