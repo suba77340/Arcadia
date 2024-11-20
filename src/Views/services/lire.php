@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Détails du Service</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1> <?= htmlspecialchars($service['nom']) ?></h1>
-    <p> <?= htmlspecialchars($service['descriptif']) ?></p>
+    <h1 class="title"> <?= htmlspecialchars($service['nom']) ?></h1>
+    <p class="description"> <?= htmlspecialchars($service['descriptif']) ?></p>
     <?php if (!empty($service['image'])): ?>
-        <p> <img src="/uploads/<?= htmlspecialchars($service['image']) ?>" alt="Photo du service"></p>
+        <div class="image-container">
+            <img src="/uploads/<?= htmlspecialchars($service['image']) ?>" alt="Photo du service" class="services-image">
+        </div>
     <?php endif; ?>
-    <a href="/services">Retour à la liste des services</a>
+    <div class="link-container">
+        <a href="/services" class="back-link">Retour à la liste des services</a>
+    </div>
 </body>
 
 </html>
