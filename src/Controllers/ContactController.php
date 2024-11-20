@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use App\Models\ContactModel; // Assurez-vous de bien importer le modèle
+use App\Models\ContactModel; 
 
 class ContactController
 {
