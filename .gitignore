@@ -1,3 +1,4 @@
-# Ignorer Db.php dans le dossier Config
-src/Config/Db.php
+#  Ignorer le dossier des dépendances de Composer
 vendor/
+# Ignorer le fichier des variables d'environnement
+.env
