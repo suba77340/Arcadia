@@ -14,7 +14,7 @@ require_once ROOT . '/src/Autoloader.php';
 Autoloader::register();
 
 // Charger les variables d'environnement à partir du fichier .env
-$dotenv = Dotenv::createImmutable(ROOT); // Crée l'instance et charge les variables
+$dotenv = Dotenv::createImmutable(__DIR__); // Crée l'instance et charge les variables
 $dotenv->load(); // Charge les variables dans $_ENV
 
 // Main est le routeur
