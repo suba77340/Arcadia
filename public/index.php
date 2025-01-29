@@ -1,24 +1,24 @@
 <?php
 
-
+require_once '../vendor/autoload.php'; // Inclure l'autoloader de Composer
 
 use App\Autoloader;
 use App\Config\Main;
-use Dotenv\Dotenv;  // Ici, tu importes correctement la classe Doten
+use Dotenv\Dotenv;
 
 // constante contenant dossier racine du projet ARCADIA
 define('ROOT', dirname(__DIR__));
-require_once ROOT . '/vendor/autoload.php';
-// On importe l'autoloader
-require_once ROOT . '/src/Autoloader.php';
+//on importe autoloader
+require_once ROOT.'/src/Autoloader.php';
 Autoloader::register();
 
-// Charger les variables d'environnement à partir du fichier .env
-$dotenv = Dotenv::createImmutable(__DIR__); // Crée l'instance et charge les variables
-$dotenv->load(); // Charge les variables dans $_ENV
+// Load environment variables from the .env file in the root directory
+$dotenv = Dotenv::createImmutable(ROOT);
+$dotenv->load();
 
-// Main est le routeur
-$app = new Main();
+// Main est le routeur 
+    $app = new Main();
 
 // Démarre l'application (start la méthode)
-$app->start();
+    $app->start();
+
