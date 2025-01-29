@@ -4,21 +4,29 @@ namespace App\Controllers;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use App\Models\ContactModel; 
+use App\Models\ContactModel;
+use Dotenv\Dotenv;
 
-class ContactController
+class ContactController extends Controller
 {
     private $contactModel;
 
     public function __construct()
     {
+        // Charger les variables d'environnement ici
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+        $dotenv->load();
+
         $this->contactModel = new ContactModel();
     }
 
-    public function index()
+    public function index(): void
     {
-        // voir le formulaire de contact
-        require_once ROOT . '/src/Views/contact/index.php';
+        $contacts = $this->contactModel->findAllContact();
+        if (!is_array($contacts)) {
+            $contacts = [];
+        }
+        $this->render('contact/index', ['contacts' => $contacts]);
     }
 
     public function envoyer()
@@ -33,10 +41,7 @@ class ContactController
 
             // Envoi de l'email
             $this->envoyerEmail($titre, $description, $email);
-
             echo "Merci pour votre message ! Nous vous répondrons dès que possible.";
-        } else {
-            echo "Méthode de requête non valide.";
         }
     }
 
@@ -44,24 +49,26 @@ class ContactController
     {
         $mail = new PHPMailer(true);
 
+
         try {
             $mail->isSMTP();
-            $mail->Host = getenv('SMTP_HOST');
+            $mail->Host = $_ENV['SMTP_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = getenv('SMTP_USERNAME');
-            $mail->Password = getenv('SMTP_PASSWORD');
+            $mail->Username = $_ENV['SMTP_USERNAME'];
+            $mail->Password = $_ENV['SMTP_PASSWORD'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             $mail->setFrom('arcadiazoo36110@gmail.com', 'Contact');
             $mail->addAddress('arcadiazoo36110@gmail.com', 'Paul');
+
+            $mail->isHTML(true);
             $mail->Subject = 'Nouveau message de contact : ' . $titre;
-            $mail->Body    = "Vous avez reçu un nouveau message de contact.\n\nTitre : $titre\nDescription : $description\nEmail du client : $email";
+            $mail->Body    = "Vous avez reçu un nouveau message de contact.<br><br><strong>Titre :</strong> $titre<br><strong>Description :</strong> $description<br><strong>Email du client :</strong> $email";
 
             $mail->send();
-            echo 'Email envoyé avec succès !';
+            return true;
         } catch (Exception $e) {
-            echo "L'envoi de l'email a échoué : Erreur SMTP : {$mail->ErrorInfo}";
         }
     }
 }
