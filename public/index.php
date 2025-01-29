@@ -1,14 +1,14 @@
 <?php
 
-require_once ROOT . '/vendor/autoload.php';
+
+
 use App\Autoloader;
 use App\Config\Main;
-use Dotenv\Dotenv;  // Ici, tu importes correctement la classe Dotenv
-
+use Dotenv\Dotenv;  // Ici, tu importes correctement la classe Doten
 
 // constante contenant dossier racine du projet ARCADIA
 define('ROOT', dirname(__DIR__));
-
+require_once ROOT . '/vendor/autoload.php';
 // On importe l'autoloader
 require_once ROOT . '/src/Autoloader.php';
 Autoloader::register();
