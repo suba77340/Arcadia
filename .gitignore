@@ -1,4 +1,4 @@
 #  Ignorer le dossier des dépendances de Composer
-vendor/
+/vendor/
 # Ignorer le fichier des variables d'environnement
 .env
