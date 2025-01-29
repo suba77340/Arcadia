@@ -5,7 +5,6 @@ namespace App\Controllers;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use App\Models\ContactModel;
-use Dotenv\Dotenv;
 
 class ContactController extends Controller
 {
@@ -13,9 +12,11 @@ class ContactController extends Controller
 
     public function __construct()
     {
-        // Charger les variables d'environnement ici
-        $dotenv = Dotenv::createImmutable(ROOT);
-        $dotenv->load();
+        // Plus besoin de charger Dotenv si on utilise getenv()
+        $mongoUri = getenv('MONGO_URI');
+        if (!$mongoUri) {
+            throw new \Exception('MONGO_URI not set');
+        }
 
         $this->contactModel = new ContactModel();
     }

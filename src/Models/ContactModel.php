@@ -14,7 +14,6 @@ class ContactModel
     {
         // Accéder directement à la variable d'environnement
         $mongoUri = getenv('MONGO_URI');
-
         if (!$mongoUri) {
             throw new \Exception('La variable MONGO_URI n\'est pas définie dans l\'environnement');
         }

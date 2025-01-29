@@ -12,12 +12,10 @@ class CompteurModel
 
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-        $dotenv->load();
-
-        $dotenv->load();
-
-        $mongoUri = $_ENV['MONGO_URI'];
+        $mongoUri = getenv('MONGO_URI');
+        if (!$mongoUri) {
+            throw new \Exception('MONGO_URI not set');
+        }
         $this->client = new Client($mongoUri);
 
         $this->client->listDatabases();
