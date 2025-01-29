@@ -12,7 +12,9 @@ class CompteurModel
 
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv->load();
+
         $dotenv->load();
 
         $mongoUri = $_ENV['MONGO_URI'];
