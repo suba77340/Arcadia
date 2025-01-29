@@ -15,7 +15,14 @@ Autoloader::register();
 
 // Load environment variables from the .env file in the root directory
 $dotenv = Dotenv::createImmutable(ROOT);
-$dotenv->load();
+
+// Vérifie si le fichier .env existe avant de le charger
+if (file_exists(ROOT . '/.env')) {
+    $dotenv->load();
+} else {
+    // Ou tu peux loguer une erreur si tu veux
+    error_log('Le fichier .env n\'a pas été trouvé');
+}
 
 // Main est le routeur 
     $app = new Main();
