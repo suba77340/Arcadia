@@ -12,12 +12,7 @@ class HoraireModel
 
     public function __construct()
     {
-        // Charger les variables d'environnement ici
-        $dotenv = Dotenv::createImmutable(ROOT);
-        $dotenv->load();
-        
-
-        $mongoUri = $_ENV['MONGO_URI'];
+        $mongoUri = getenv('MONGO_URI'); // Utilise getenv() pour récupérer la variable d'environnement
         if (!$mongoUri) {
             throw new \Exception('MONGO_URI not set');
         }

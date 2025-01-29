@@ -12,12 +12,12 @@ class ContactModel
 
     public function __construct()
     {
-        // Charger les variables d'environnement
-        $dotenv = Dotenv::createImmutable(ROOT);
-        $dotenv->load();
+        // Accéder directement à la variable d'environnement
+        $mongoUri = getenv('MONGO_URI');
 
-
-        $mongoUri = $_ENV['MONGO_URI'];
+        if (!$mongoUri) {
+            throw new \Exception('La variable MONGO_URI n\'est pas définie dans l\'environnement');
+        }
 
         $this->client = new Client($mongoUri);
         $this->client->listDatabases();

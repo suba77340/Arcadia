@@ -13,9 +13,12 @@ class ContactController extends Controller
 
     public function __construct()
     {
-        // Charger les variables d'environnement ici
+    // Vérifie si tu n'es pas en environnement de production (Heroku)
+    if ($_SERVER['APP_ENV'] !== 'production') {
+        // Charger les variables d'environnement à partir du fichier .env local (en dehors de Heroku)
         $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
         $dotenv->load();
+    }
 
         $this->contactModel = new ContactModel();
     }
