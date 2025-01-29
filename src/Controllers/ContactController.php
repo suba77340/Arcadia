@@ -14,7 +14,7 @@ class ContactController extends Controller
     public function __construct()
     {
         // Charger les variables d'environnement ici
-        $dotenv = Dotenv::createImmutable(__DIR__ );
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
         $dotenv->load();
 
         $this->contactModel = new ContactModel();
