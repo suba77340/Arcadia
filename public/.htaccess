@@ -1,4 +1,4 @@
 RewriteEngine On
-
-#reecrit URL pour autoriser certains caracteres, interprete ce qui est ecrit dans url et le passer dans les parametres
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ public/$1 [QSA,L]
