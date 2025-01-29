@@ -13,7 +13,7 @@ class HoraireModel
     public function __construct()
     {
         // Charger les variables d'environnement ici
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv = Dotenv::createImmutable(ROOT);
         $dotenv->load();
         
 

@@ -13,11 +13,9 @@ class ContactModel
     public function __construct()
     {
         // Charger les variables d'environnement
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv = Dotenv::createImmutable(ROOT);
         $dotenv->load();
 
-
-        $dotenv->load();
 
         $mongoUri = $_ENV['MONGO_URI'];
 
