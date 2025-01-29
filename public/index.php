@@ -1,7 +1,5 @@
 <?php
 
-require_once '../vendor/autoload.php'; // Inclure l'autoloader de Composer
-
 use App\Autoloader;
 use App\Config\Main;
 use Dotenv\Dotenv;
