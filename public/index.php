@@ -1,5 +1,8 @@
 <?php
 
+// Ajoute cette ligne au début du fichier index.php si elle n'existe pas déjà
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use App\Autoloader;
 use App\Config\Main;
 use Dotenv\Dotenv;
