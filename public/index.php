@@ -17,12 +17,6 @@ Autoloader::register();
 $dotenv = Dotenv::createImmutable(ROOT); // Crée l'instance et charge les variables
 $dotenv->load(); // Charge les variables dans $_ENV
 
-
-// Si les variables d'environnement sont présentes, démarrer l'application
-if (!isset($_ENV['HOST'], $_ENV['DBNAME'], $_ENV['USERNAME'], $_ENV['PASSWORD'])) {
-    die("Les variables d'environnement pour la base de données sont manquantes.");
-}
-
 // Main est le routeur
 $app = new Main();
 
