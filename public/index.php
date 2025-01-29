@@ -25,7 +25,7 @@ if (file_exists(ROOT . '/.env') && getenv('HEROKU') === false) {
     error_log('Sur Heroku, les variables d\'environnement sont définies via la plateforme.');
 }
 
-// Main est le routeur 
+// Main est le routeur
     $app = new Main();
 
 // Démarre l'application (start la méthode)
