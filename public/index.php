@@ -1,27 +1,18 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../vendor/autoload.php'; // Inclure l'autoloader de Composer
 
 use App\Autoloader;
 use App\Config\Main;
-use Dotenv\Dotenv;
 
-// Define the ROOT constant to indicate the root directory of the project
+// constante contenant dossier racine du projet ARCADIA
 define('ROOT', dirname(__DIR__));
-
-// Include the autoloader to automatically manage the loading of classes
-require_once __DIR__ . '/../Autoloader.php';
-
+//on importe autoloader
+require_once ROOT.'/src/Autoloader.php';
 Autoloader::register();
 
-// Load environment variables from the .env file in the root directory
-// Assurez-vous que les variables d'environnement sont définies dans Heroku
-$_ENV['HOST'] = getenv('HOST');
-$_ENV['DBNAME'] = getenv('DBNAME');
-$_ENV['USERNAME'] = getenv('USERNAME');
-$_ENV['PASSWORD'] = getenv('PASSWORD');
+// Main est le routeur 
+    $app = new Main();
 
-
-// Start the application
-$app = new Main();
-$app->start();
+// Démarre l'application (start la méthode)
+    $app->start();

@@ -3,6 +3,7 @@
 namespace App\Config;
 
 use PDO;
+use PDOException;
 
 class Db extends PDO
 {
@@ -10,10 +11,21 @@ class Db extends PDO
 
     private function __construct()
     {
-        $dsn = 'mysql:host=' . $_ENV['HOST'] . ';dbname=' . $_ENV['DBNAME'];
-        parent::__construct($dsn, $_ENV['USERNAME'], $_ENV['PASSWORD']);
-        $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-        $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $host = getenv('HOST');
+        $dbname = getenv('DBNAME');
+        $username = getenv('USERNAME');
+        $password = getenv('PASSWORD');
+
+        $_dsn = "mysql:dbname=$dbname;host=$host";
+        try {
+            parent::__construct($_dsn, $username, $password);
+
+            $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, 'SET NAMES utf8');
+            $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
     }
 
     public static function getInstance(): self
@@ -24,4 +36,3 @@ class Db extends PDO
         return self::$instance;
     }
 }
-
