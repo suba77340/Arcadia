@@ -16,12 +16,13 @@ Autoloader::register();
 // Load environment variables from the .env file in the root directory
 $dotenv = Dotenv::createImmutable(ROOT);
 
-// Vérifie si le fichier .env existe avant de le charger
-if (file_exists(ROOT . '/.env')) {
+// Vérifie si on est sur Heroku ou en local pour charger correctement les variables d'environnement
+if (file_exists(ROOT . '/.env') && getenv('HEROKU') === false) {
+    // Charge les variables d'environnement depuis le fichier .env en local uniquement
     $dotenv->load();
 } else {
-    // Ou tu peux loguer une erreur si tu veux
-    error_log('Le fichier .env n\'a pas été trouvé');
+    // Si sur Heroku, on n'a pas besoin de .env, les variables d'env sont définies dans Heroku
+    error_log('Sur Heroku, les variables d\'environnement sont définies via la plateforme.');
 }
 
 // Main est le routeur 
