@@ -1,0 +1,911 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #8BBA83 !important; 
+    padding: 10px;
+}
+
+.navbar-brand img {
+    max-height: 70px; 
+    max-width: 100%; 
+    height: auto; 
+    margin-left: 50%; 
+}
+
+.navbar-nav {
+    flex-grow: 1; 
+    justify-content: flex-end;
+    padding-right: 25px; 
+}
+
+.nav-link {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #2C4526;
+    font-size: 1.2rem; 
+    padding: 10px 15px; 
+}
+
+/* Footer */
+footer {
+    background-color: #8BBA83 !important; 
+    width: 100%;
+    position: relative;
+    color: #2C4526;
+    font-size: 1rem; 
+}
+
+.footer .container { 
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; } 
+
+.footer .container .row { 
+    display: flex; 
+    width: 100%; 
+    justify-content: space-between; 
+} 
+
+.footer .container .col-md-3 { 
+    flex: 0 0 23%; 
+    max-width: 23%; 
+    margin-bottom: 15px;
+} 
+
+.horaires-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.horaires-list li {
+    margin-bottom: 1px!important;
+}
+
+
+/* Corps de l'appli */
+
+main.container.mt-4 p { 
+    color: #2C4526; 
+}
+
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    padding: 0; }
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #2C4526;
+    font-family: 'Georgia', serif; 
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+main { 
+    flex: 1;
+}
+
+main > p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Cards */
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-top {
+    transition: transform 0.3s ease;
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-title {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    background: rgba(238, 226, 226, 0.6); 
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+.card-title a { 
+    color: #2C4526; 
+    text-decoration: none;
+}
+
+.card:hover .card-title {
+    opacity: 1; 
+}
+
+
+/* format mobile*/
+@media (max-width: 768px) {
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.horaires-list li { 
+    font-size: 0.9rem; 
+    margin-bottom: 1px!important;
+}
+
+.navbar-nav {
+    flex-direction: column; 
+    align-items: center; 
+    padding-right: 0; 
+}
+
+.navbar-brand img {
+    margin-left: 0; 
+    display: block; 
+    margin: 0 auto; 
+    }
+
+.nav-link {
+    font-size: 1rem; 
+    padding: 8px 12px; 
+}
+
+.card-img-top {
+    height: 150px; 
+}
+
+h1, h2 {
+    font-size: 1.2rem; 
+}
+
+
+#avis .col-md-4 { 
+    flex: 0 0 100%; 
+    max-width: 100%; 
+}
+
+.card { 
+    margin-bottom: 20px; 
+}
+
+.card-title { 
+    position: absolute; 
+    bottom: 1%; 
+    left: auto; 
+    background: rgba(238, 226, 226, 1); 
+    opacity: 0.7;  
+}
+
+.footer .container { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.footer .container .row { 
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .container .col-md-3 { 
+    flex: 0 0 100%; 
+    max-width: 100%; 
+    margin-bottom: 15px; 
+}
+
+}
+
+
+/* format mobile*/
+@media (max-width: 576px) {
+
+.navbar {
+        padding: 5px; 
+}
+
+.navbar-brand img {
+        max-height: 50px; 
+}
+
+p {
+    font-size: 0.9em; 
+}
+
+.row .col-md-4 { 
+    flex: 0 0 100%; 
+    max-width: 100%; 
+    }
+
+.card-title { 
+    font-size: 1rem; 
+}
+
+.section {
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+#avis {
+    margin-top: 4px!important; 
+    margin-bottom: 5px; 
+}
+
+#avis + .section {
+    margin-top: 4px!important; 
+}
+
+}
+
+.avis-item {
+    padding: 10px; 
+    margin-bottom: 1px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    color: #2C4526;
+}
+
+/* partie concernant la page service*/
+.service-container {
+    margin: 10px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #8BBA83;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.service-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.service-text, .service-image {
+    flex: 1;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.service-image img {
+    width: 150%;
+    height: 150%;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.service-text {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #2C4526;
+    font-size: 1.2rem; 
+    padding: 10px 15px; 
+}
+
+.center-container { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;  
+}
+
+/* Styles pour le lien "Donner mon avis" */
+#laisserAvis {
+    color: #2C4526; 
+    font-size: 1.4rem; 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    align-items: center;
+    font-family: 'Georgia', serif;
+}
+
+#formulaireAvis { 
+    display: none; 
+    background-color: #FFFFFF;
+    padding: 20px; 
+    border: 1px solid #CCC; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+}
+
+.forme-column {
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px; 
+    max-width: 450px; 
+    margin: 0 auto;
+} 
+    
+.forme-column label { 
+    color: #2C4526; 
+}
+
+.forme-column button { 
+    background-color: #2C4526; 
+    color: #FFFFFF; 
+    font-size: 1rem; 
+}
+
+.forme-column input, .forme-column textarea, .forme-column button  {   
+    width: 100%; 
+    box-sizing: border-box;
+    margin-bottom: 10px; 
+} 
+
+/* Format mobile */
+@media (max-width: 768px) {
+.service-item {
+    flex-direction: column; 
+    align-items: center;
+}
+
+.service-content {
+    flex-direction: column;
+    width: 100%;
+}
+
+.service-text, .service-image {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.service-image img {
+    width: 300px; 
+    height: 300px; 
+    object-fit: fill; 
+}
+
+.habitat-item { 
+    flex-direction: column; 
+} 
+
+.habitat-image { 
+    order: 2; 
+    padding-bottom: 10px;
+} 
+
+.habitat-text{ 
+    order: 1; 
+    text-align: center;
+    font-size: 1rem !important;
+}
+
+.habitat-image img {
+    width: 300px; 
+    height: 200px; 
+    object-fit: fill; /* couvre entierementt la zone définie sans déformation */
+    padding-left: 11px;
+} 
+    
+    
+.cards {
+    width: 250px!important; 
+    height: 200px!important; 
+}
+
+.cards-body {
+    padding: 2px!important; 
+}
+
+.cards-body h2 {
+    font-size: 1rem!important; 
+}
+
+.back-link { 
+    padding: 5px 5px!important;
+    padding-left: 5px!important;
+    margin-left: 34px!important; 
+    text-align: center!important; 
+}
+
+}
+/*Partie concernant les habitats*/
+
+.title { 
+    margin-top: 20px;
+    margin-bottom: 40px; 
+}
+
+.habitat-container {
+    margin: 10px;
+}
+
+.habitat-item {
+    display: flex;
+    align-items: center;
+    background-color: #8BBA83;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: left;
+}
+
+.habitat-image {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.habitat-image img {
+    width: 150%;
+    height: 150;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover; 
+}
+
+.habitat-text {
+    flex: 1;
+    color: #2C4526;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+.habitat-link {
+    color: inherit; /* la couleur du parent */
+    text-decoration: none; 
+}
+
+.habitat-link:hover { 
+    color: #030303;  
+    text-decoration: none;
+}
+
+/*liste des animaux*/
+
+.cards-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    gap:10px;
+} 
+.cards { 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    margin: 10px; 
+    width: 300px; 
+    height: 230px;
+    text-align: center; 
+} 
+
+.cards img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+} 
+
+.cards-body  { 
+    padding: 30px; 
+} 
+
+.cards-body h2 { 
+    font-size: 1.6rem; 
+    margin: 0; 
+} 
+
+.cards-body a { 
+    color: #2C4526; 
+    text-decoration: none; 
+} 
+
+.cards-body a:hover { 
+    text-decoration: none; 
+    color: #51856f;
+}
+
+.back-link { 
+    display: inline-block; 
+    margin-top: 20px;
+    margin-bottom: 10px; 
+    padding: 5px 5px; 
+    margin-left: 40px;
+    text-align: center;
+    background-color: #8BBA83; 
+    color: #2C4526; 
+    text-decoration: none; 
+    border-radius: 5px; 
+}
+
+
+/*Details de chaque animal*/
+
+.back-link {
+    display: inline-block;
+    padding: 5px 5px;
+    margin-right: 35px;
+    background-color: #8BBA83; 
+    color: #2C4526; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    text-align: center;
+}
+
+.back-link:hover, .back-link:active {
+    transform: translateY(-3px);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.details p {
+    margin: 10px 0;
+    font-family: 'Verdana', sans-serif;
+    color: #2C4526;
+}
+
+.image-container {
+    max-width: 45%;
+    text-align: center;
+    margin-left: 28%;
+    padding-top: 30px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.link-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+/* Details animal format mobile */
+@media (max-width: 576px) {
+.container { 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+} 
+
+.details {
+    max-width: 90%;
+    text-align: center;
+    margin-right: 0;
+}
+
+.details p {
+    margin: 2px 0!important; 
+}
+
+.image-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.image-container img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+}
+
+}
+
+
+/*Galerie des animaux*/
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 39px;
+}
+        
+.gallery-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+        
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+        
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+        
+.gallery-caption {
+    font-size: 1.2rem;
+    color: #333;
+    padding: 5px;
+    margin: 0;
+}
+        
+/* Media Query pour galerie photo */
+@media (max-width: 576px) {
+h1 {
+    font-size: 1.4rem; 
+}
+        
+.gallery-caption {
+    font-size: 1rem; 
+}
+        
+.gallery-image {
+    height: 150px; 
+}
+        
+.gallery-item {
+    width: 100%; 
+}
+}
+
+/*Partie connexion*/
+
+.login-form {
+    max-width: 400px; 
+    margin: auto; 
+    padding: 30px;
+    margin-top: 80px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    
+}
+
+.login-form button {
+    width: 40%;
+    padding: 5px;
+    margin-left: 90px;
+    margin-top: 30px;
+    background-color: #2C4526; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #23401b; 
+}
+
+@media (max-width: 576px) {
+.login-form {
+    max-width: 90%; 
+    margin: 0 auto;
+    margin-bottom:40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form h1 {
+    text-align: center;
+    font-size: 1.2rem; 
+    margin-bottom: 15px;
+}
+
+.login-form button {
+    width: 50%; 
+    padding: 3px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    background-color: #2C4526;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #23401b;
+}
+
+.login-form button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+}
+
+/*Les 3 Dashboards*/
+
+.container {
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 20px; 
+} 
+
+.list-group { 
+    width: 100%; 
+} 
+
+/* pour formulaire modifier et ajouter ->services/animal/habitat*/
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    max-width: 500px; 
+    margin: 50px auto; 
+}
+
+.form-column label {
+    font-weight: bold;
+}
+
+.form-column textarea { 
+    height: 100px; 
+}
+
+.form-column input, 
+.form-column select, 
+.form-column textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.form-column button { 
+    padding: 5px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #2C4526; 
+    color: #fff;
+    width: 30%;
+}
+
+/*dasboard mobile*/
+
+@media (max-width: 767px) {
+
+.container {
+    padding: 15px;
+    padding-top: 0px;
+}
+
+h5 {
+    font-size: 15px;
+}
+
+.list-group-item {
+    font-size: 14px;
+    padding-right: 5px;
+    width: 100%;
+}
+
+.btn-sm {
+    font-size: 11px;
+    display: flex; 
+    justify-content: center; 
+    margin-top: 1px;
+}
+
+.text-warning {
+    font-size: 14px;
+}
+
+.btn-md {
+    padding: 8px 16px; 
+    font-size: 11px; 
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    }
+
+.button-container {
+    text-align: center; 
+}
+
+.d-flex { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 100%; 
+}
+
+}
+
+/*Formulaire de contact*/
+
+.form-column button:hover {
+    background-color: #23401b;
+}
+
+.form-column button {
+    align-self: center;
+}
+
+/*Detail images service*/
+
+.services-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
