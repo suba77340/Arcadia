@@ -1,18 +1,22 @@
 <?php
 
-require_once '../vendor/autoload.php'; // Inclure l'autoloader de Composer
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Autoloader;
 use App\Config\Main;
+use Dotenv\Dotenv;
 
-// constante contenant dossier racine du projet ARCADIA
+// Define the ROOT constant to indicate the root directory of the project
 define('ROOT', dirname(__DIR__));
-//on importe autoloader
-require_once ROOT.'/src/Autoloader.php';
+
+// Include the autoloader to automatically manage the loading of classes
+require_once ROOT . '/src/Autoloader.php';
 Autoloader::register();
 
-// Main est le routeur 
-    $app = new Main();
+// Load environment variables from the .env file in the root directory
+$dotenv = Dotenv::createImmutable(ROOT);
+$dotenv->load();
 
-// Démarre l'application (start la méthode)
-    $app->start();
+// Start the application
+$app = new Main();
+$app->start();
