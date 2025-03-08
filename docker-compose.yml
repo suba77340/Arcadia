@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .  # Cherche le Dockerfile dans le répertoire courant
+    container_name: php-container
+    ports:
+      - "8081:80"  # Mappe le port 8081 de l'hôte vers le port 80 du conteneur
+    env_file:
+      - .env  # Charge les variables d'environnement depuis le fichier .env
+    volumes:
+      - .:/var/www/html  # Monte mon projet local dans le conteneur
+    networks:
+      - app-network  # Réseau Docker pour connecter les services entre eux
+    depends_on:
+      - mongo  # Assure que MongoDB est lancé avant le service PHP
+
+  mongo:
+    image: mongo:latest  # Utilise l'image officielle de MongoDB
+    container_name: mongo-container
+    ports:
+      - "27018:27017"  # Mappe le port 27018 de l'hôte vers le port 27017 du conteneur
+    volumes:
+      - mongo-data:/data/db  # Persiste les données MongoDB
+    networks:
+      - app-network  # Connecte MongoDB au même réseau que l'application
+
+networks:
+  app-network:
+    driver: bridge  # Crée un réseau local pour les services
+
+volumes:
+  mongo-data:  # Déclare un volume pour persister les données de MongoDB
