@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Employé</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tableau de Bord Employé</title>
 </head>
 
 <body>

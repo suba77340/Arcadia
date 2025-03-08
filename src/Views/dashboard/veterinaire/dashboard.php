@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Vétérinaire</title>
+    <title>Tableau de Bord Vétérinaire</title>
     <link rel="stylesheet" href="/public/Assets/css/index.css">
 </head>
 
