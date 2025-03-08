@@ -1,5 +1,5 @@
 <?php
 
-define('ROOT', dirname(__DIR__));
+// Charge l'autoloader de Composer
+require_once __DIR__ . '/../vendor/autoload.php';
 
-require ROOT . '/vendor/autoload.php';
