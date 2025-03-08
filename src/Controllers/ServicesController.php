@@ -57,7 +57,7 @@ class ServicesController extends Controller
                     chmod($newfilename, 0644);
                     $image = "$newname.$extension";
                 }
-
+                 // Création d'un nouveau service via le modèle
                 $service = new ServicesModel();
                 $service->setNom($nom)
                     ->setDescriptif($descriptif)
@@ -68,7 +68,7 @@ class ServicesController extends Controller
                 header('Location: /services');
                 exit;
             }
-
+            // Affichage du formulaire
             $form = new Form();
             $form->debutForm('POST', '/services/ajouter', ['enctype' => 'multipart/form-data'])
                 ->ajoutLabelFor('nom', 'Nom du service:')
@@ -88,7 +88,7 @@ class ServicesController extends Controller
                 ])
                 ->ajoutBouton('Ajouter', ['class' => 'btn btn-primary'])
                 ->finForm();
-
+            // Génération du formulaire
             $this->render('services/ajouter', ['form' => $form->create()]);
         } else {
             $_SESSION['erreur'] = 'Vous devez être connecté pour accéder à cette page';

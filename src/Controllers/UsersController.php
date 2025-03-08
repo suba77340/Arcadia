@@ -10,6 +10,7 @@ class UsersController extends Controller
     // Connexion utilisateur
     public function login()
     {
+        // Validation des champs du formulaire
         if (Form::validate($_POST, ['email', 'password'])) {
             // Validation de l'email
             $email = filter_var(strip_tags($_POST['email']), FILTER_SANITIZE_EMAIL);
@@ -24,33 +25,46 @@ class UsersController extends Controller
 
             $usersModel = new UsersModel;
             $userArray = $usersModel->findOneByEmail($email);
+
+            // Vérification de l'existence de l'utilisateur
             if (!$userArray) {
-                $_SESSION['erreur'] = 'L\'adresse email et ou le mot de passe est incorrect';
+                $_SESSION['erreur'] = 'L\'adresse email et/ou le mot de passe sont incorrects.';
                 header('Location:/users/login');
                 exit;
             }
 
+            // Hydratation de l'utilisateur
             $user = $usersModel->hydrate($userArray);
-            if (password_verify($password, $user->getPassword())) {
-                $user->setSession();
 
-                // Redirige l'utilisateur vers son tableau de bord respectif
-                if ($user->getId_Role() === 1) {
-                    header('Location:/admin/dashboard');
-                } elseif ($user->getId_Role() === 3) {
-                    header('Location:/veterinaire/dashboard');
-                } elseif ($user->getId_Role() === 2) {
-                    header('Location:/employe/dashboard');
-                } else {
-                    header('Location:/users/login');
+            // Vérification du mot de passe
+            if (password_verify($password, $user->getPassword())) {
+                $user->setSession();  // Mettre l'utilisateur en session
+
+                // Redirection selon le rôle
+                switch ($user->getId_Role()) {
+                    case 1:
+                        header('Location:/admin/dashboard');
+                        break;
+                    case 2:
+                        header('Location:/employe/dashboard');
+                        break;
+                    case 3:
+                        header('Location:/veterinaire/dashboard');
+                        break;
+                    default:
+                        $_SESSION['erreur'] = 'Rôle inconnu';
+                        header('Location:/users/login');
+                        break;
                 }
                 exit;
             } else {
-                $_SESSION['erreur'] = 'L\'adresse email et ou le mot de passe est incorrect';
+                $_SESSION['erreur'] = 'L\'adresse email et/ou le mot de passe sont incorrects.';
                 header('Location:/users/login');
                 exit;
             }
         }
+
+        // Création du formulaire de connexion
         $form = new Form;
         $form->debutForm()
             ->ajoutLabelFor('email', 'Email:')
@@ -60,8 +74,10 @@ class UsersController extends Controller
             ->ajoutBouton('Me connecter', ['class' => 'btn btn-primary'])
             ->finForm();
 
+        // Rendu du formulaire
         $this->render('users/login', ['loginForm' => $form->create()]);
     }
+
 
     // Inscription des utilisateurs
     public function register()
